@@ -1,16 +1,15 @@
 import { RouteProp } from "@react-navigation/native";
 import { View, Text } from "react-native";
-import React from 'react';
+import React, { FC } from 'react';
 
 
 interface UserProps {
   route: RouteProp<any, any>;
 }
-export const SettingScreen = ({ route }: UserProps) => {
+export const SettingScreen:FC<UserProps> = ({ route }) => {
   return (
-    <View>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>設定画面</Text>
-      {/* <Text>id: {route?.params?.userId}</Text> */}
     </View>
   );
 };

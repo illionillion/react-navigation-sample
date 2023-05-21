@@ -7,9 +7,9 @@ export interface UserProps {
 }
 export const UserScreen = ({ route }: UserProps) => {
   return (
-    <View>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>ユーザー画面</Text>
-      {/* <Text>id: {route?.params?.userId}</Text> */}
+      <Text>id: {route?.params?.userId}</Text>
     </View>
   );
 };

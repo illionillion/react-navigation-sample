@@ -5,6 +5,23 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { SettingScreen } from "./src/screens/SettingScreen";
 import { Ionicons } from "@expo/vector-icons";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+// Stack Navigatorの作成
+const Stack = createNativeStackNavigator();
+const StackNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ title: "ホーム画面" }}
+      />
+      <Stack.Screen name="User" component={UserScreen} options={{ title: "ユーザー画面" }} />
+    </Stack.Navigator>
+  );
+};
+// Tab
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -17,27 +34,13 @@ export default function App() {
         })}
       >
         <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          // options={{ headerShown: false }}
+          name="HomeStack"
+          component={StackNavigator}
           options={{
-            title: "ホーム画面",
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="ios-home" size={size} color={color} />
             ),
-          }}
-        />
-        <Tab.Screen
-          name="User"
-          component={UserScreen}
-          // options={({ route }) => ({
-          //   title: `ユーザID${route?.params?.userId}の画面`,
-          // })}
-          options={{
-            title: "ユーザー画面",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="person" size={size} color={color} />
-            ),
+            headerShown: false,
           }}
         />
         <Tab.Screen

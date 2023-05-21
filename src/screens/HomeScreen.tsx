@@ -1,18 +1,18 @@
 import { NavigationProp } from "@react-navigation/native";
-import { View, Text } from "react-native";
-import React from 'react';
+import { View, Text, Button } from "react-native";
+import React, { FC } from 'react';
 
 interface HomeProps {
   navigation: NavigationProp<any, any>;
 }
-export const HomeScreen = ({ navigation }: HomeProps) => {
+export const HomeScreen:FC<HomeProps> = ({ navigation }) => {
   return (
-    <View>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>ホーム画面</Text>
-      {/* <Button
+      <Button
         title="ユーザ"
         onPress={() => navigation.navigate("User", { userId: 2 })}
-      /> */}
+      />
     </View>
   );
 };
